@@ -9,13 +9,13 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <style>
           .sign-in{
-            width:490px;
+            /*width:480px;*/
             height:300px;
             padding:10px;
-            margin:190px auto;
+            margin:6% auto;
           }
           .bz{
-            width:300px;
+            /*width:300px;*/
             padding:3px;
             margin:5px auto;
           }
@@ -27,27 +27,29 @@
     <body style="background:#333333">
       <div class="container-fluid">
         <div class="sign-in">
-            <div class="bz">
+          <div class="row">
+            <div class="bz col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <h1 class="text-center"><a href="index.html"><img src="images/TP3.png" alt="bz"></a></h1>
               <h3 class="text-center"><p class="sign-info">登录</p></h3>
             </div>
-            <form>
+          </div>
+          <form>
               <div class="form-group">
-                <div class="input-group">
+                <div class="input-group col-xs-8 col-sm-6 col-md-4 col-lg-4 col-xs-offset-2 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                   <input type="text" name="username" class="form-control">
                 </div>
               </div>
               <div class="form-group">
-                <div class="input-group">
+                <div class="input-group col-xs-8 col-sm-6 col-md-4 col-lg-4 col-xs-offset-2 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
                   <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                  <input type="text" name="pwd" class="form-control">
+                  <input type="password" name="pwd" class="form-control">
                 </div>
               </div>
               <div class="form-group">
 
               </div>
-            </form>
+          </form>
         </div>
       </div>
     </body>
