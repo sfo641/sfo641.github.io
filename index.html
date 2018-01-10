@@ -22,7 +22,7 @@
          window.onload=init;
          function init(){
           var obj=document.getElementById("li1");
-          obj.style.background="orange";
+          obj.src="images/d2.png";
           dsq=window.setInterval("tupian()",1500);
          }
          //让图片自动切换的图片
@@ -35,7 +35,7 @@
           obj.src="images/dd_scroll_"+i+".jpg";
           ys();
           var yanse=document.getElementById("li"+i);
-          yanse.style.background="orange";
+          yanse.src="images/d2.png";
          }
          //鼠标放上图片停止
          function stopTu(){
@@ -52,7 +52,7 @@
           obj.src="images/dd_scroll_"+n+".jpg";
           window.clearInterval(dsq);
           ys();
-          m.style.background="orange";
+          m.src="images/d2.png";
          }
          //鼠标离开列表，图片继续自动切换
          function dongTu(){
@@ -62,7 +62,7 @@
          function ys(){
           for(var j=1;j<=6;j++){
             var allobj=document.getElementById("li"+j);
-            allobj.style.background="white";
+            allobj.src="images/d1.png";
           }
          }
         </script>
@@ -91,12 +91,14 @@
             padding:0;
           }
           .gl ul li{
-            width:249px;
-            height:30px;
             padding:0;
             margin:0;
-            text-align:center;
             line-height:30px;
+          }
+          .bxt{
+            position:absolute;
+            right:50px;
+            bottom:30px;
           }
         </style>
     </head>
@@ -143,17 +145,16 @@
           <!--这是滚动图片部分-->
           <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
             <img id="d1" src="images/dd_scroll_1.jpg" onmouseover="stopTu()" onmouseout="startTu()" class="img-responsive img-thumbnail">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 gl">
-            <ul class="list-unstyled list-inline">
-              <li id="li1" onmouseover="tingTu(1,this)" onmouseout="dongTu()">1</li><!--
-           --><li id="li2" onmouseover="tingTu(2,this)" onmouseout="dongTu()">2</li><!--
-           --><li id="li3" onmouseover="tingTu(3,this)" onmouseout="dongTu()">3</li><!--
-           --><li id="li4" onmouseover="tingTu(4,this)" onmouseout="dongTu()">4</li><!--                  --><li id="li5" onmouseover="tingTu(5,this)" onmouseout="dongTu()">5</li><!--
-           --><li id="li6" onmouseover="tingTu(6,this)" onmouseout="dongTu()">6</li>
-            </ul>
+            <div class="bxt">
+              <ul class="list-unstyled list-inline">
+                <li><img id="li1" onmouseover="tingTu(1,this)" onmouseout="dongTu()" src="images/d1.png"></li><!--
+             --><li><img id="li2" onmouseover="tingTu(2,this)" onmouseout="dongTu()" src="images/d1.png"></li><!--
+             --><li><img id="li3" onmouseover="tingTu(3,this)" onmouseout="dongTu()" src="images/d1.png"></li><!--
+             --><li><img id="li4" onmouseover="tingTu(4,this)" onmouseout="dongTu()" src="images/d1.png"></li><!--                  -->
+                <li><img id="li5" onmouseover="tingTu(5,this)" onmouseout="dongTu()" src="images/d1.png"></li><!--
+             --><li><img id="li6" onmouseover="tingTu(6,this)" onmouseout="dongTu()" src="images/d1.png"></li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="row">
