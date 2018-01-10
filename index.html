@@ -9,6 +9,63 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
         <script src="bootstrap/js/jquery.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        /*1.定时器，反复性定时器
+          2.页面加载完成才会去切换图片，onload事件
+          3.鼠标放到图片上，图片停止，鼠标离开，图片就会动起来
+          4.鼠标放到列表上，图片停止到对应的图片上，背景颜色改变
+          5.鼠标离开列表，图片自动切换，背景颜色也自动切换
+        */
+       //页面加载完成之后让图片自动动起来
+         var dsq;
+         var i=1;
+         window.onload=init;
+         function init(){
+          var obj=document.getElementById("li1");
+          obj.style.background="orange";
+          dsq=window.setInterval("tupian()",1500);
+         }
+         //让图片自动切换的图片
+         function tupian(){
+          i++;
+          if(i>6){
+            i=1;
+          }
+          var obj=document.getElementById("d1");
+          obj.src="images/dd_scroll_"+i+".jpg";
+          ys();
+          var yanse=document.getElementById("li"+i);
+          yanse.style.background="orange";
+         }
+         //鼠标放上图片停止
+         function stopTu(){
+          window.clearInterval(dsq);
+         }
+         //鼠标离开图片自动切换
+         function startTu(){
+          dsq=window.setInterval("tupian()",1500);
+         }
+         //鼠标放到列表上，图片停止
+         function tingTu(n,m){
+          i=n;
+          var obj=document.getElementById("d1");
+          obj.src="images/dd_scroll_"+n+".jpg";
+          window.clearInterval(dsq);
+          ys();
+          m.style.background="orange";
+         }
+         //鼠标离开列表，图片继续自动切换
+         function dongTu(){
+          dsq=window.setInterval("tupian()",1500);
+
+         }
+         function ys(){
+          for(var j=1;j<=6;j++){
+            var allobj=document.getElementById("li"+j);
+            allobj.style.background="white";
+          }
+         }
+        </script>
         <style>
           *{
             margin:0;
@@ -22,6 +79,24 @@
           }
           nav{
 
+          }
+          .gd{
+           /* border:1px solid red;
+            width:1604px;*/
+            margin:0 auto;
+
+          }
+          .gl ul{
+            margin:0;
+            padding:0;
+          }
+          .gl ul li{
+            width:249px;
+            height:30px;
+            padding:0;
+            margin:0;
+            text-align:center;
+            line-height:30px;
           }
         </style>
     </head>
@@ -64,6 +139,23 @@
         </div>
       </nav>
       <div class="container-fluid" style="background:ivory;clear:both;">
+        <div class="row">
+          <!--这是滚动图片部分-->
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+            <img id="d1" src="images/dd_scroll_1.jpg" onmouseover="stopTu()" onmouseout="startTu()" class="img-responsive img-thumbnail">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1 gl">
+            <ul class="list-unstyled list-inline">
+              <li id="li1" onmouseover="tingTu(1,this)" onmouseout="dongTu()">1</li><!--
+           --><li id="li2" onmouseover="tingTu(2,this)" onmouseout="dongTu()">2</li><!--
+           --><li id="li3" onmouseover="tingTu(3,this)" onmouseout="dongTu()">3</li><!--
+           --><li id="li4" onmouseover="tingTu(4,this)" onmouseout="dongTu()">4</li><!--                  --><li id="li5" onmouseover="tingTu(5,this)" onmouseout="dongTu()">5</li><!--
+           --><li id="li6" onmouseover="tingTu(6,this)" onmouseout="dongTu()">6</li>
+            </ul>
+          </div>
+        </div>
         <div class="row">
           <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
             <img src="images/szx3.jpg" alt="动漫" class="img-responsive img-thumbnail" />
